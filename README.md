@@ -1,5 +1,11 @@
 # AWS EC2 Creation using Terraform
 
+## Topics
+1. Provider
+2. VPC
+3. Subnet
+4. EC2
+
 ## Prerequisites
 
 1. Install Terraform (AMD64, Version: 1.5.5).
