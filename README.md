@@ -17,7 +17,7 @@
 git clone https://github.com/mahmuda-bjitgroup/terraform-aws.git
 
 2. Open Visual Studio Code (VSCode):
-   - Open the terraform-aws folder in VSCode or any preferred.
+   - Open the terraform-aws folder in VSCode or any preferred IDE.
 
 3. Run the Terraform Commands:
    - Open a terminal in VSCode:
