@@ -48,8 +48,45 @@ git clone https://github.com/mahmuda-bjitgroup/terraform-aws.git
 
 2. Open Visual Studio Code (VSCode):
    - Open the terraform-aws folder in VSCode or any preferred IDE.
+  
+## Code description
+1. provider.tf:
+   ```
+   provider "aws" {
+   region = "us-east-1"
+   }
+   ```
+In terraform, we need provider block to insert the provider information. And in the provider block we need the region where the instance will be mentioned. 
+The region attribute in the provider block in AWS is important because it specifies the AWS region where the resources created by Terraform will be deployed.
 
-3. Run the Terraform Commands:
+2.custom-vpc.tf:
+```
+resource "aws_instance" "web" {
+  ami           = "ami-08a52ddb321b32a8c"
+  instance_type = "t2.micro"
+  subnet_id = aws_subnet.tf_sub.id
+}
+```
+   - **Resource block:** Resources are the most important element in the Terraform language. Each resource block describes one or more infrastructure objects, such as virtual networks, compute instances, or higher-level components such as DNS records.<br>
+   - **AMI:** An Amazon Machine Image, or AMI, is a template for Amazon EC2 instances, created from an Amazon EC2 instance.<br>
+   - **Instance Type:** Amazon EC2 provides a variety of instance types optimized to fit different use cases. Instance types comprise varying combinations of CPU, memory, storage, and networking capacity and give you the flexibility to choose the appropriate mix of resources for your applications.<br>
+   - **Subnet ID:** A subnet, or subnetwork, is a logical subdivision of an IP network. The practice of dividing a network into two or more networks is called subnetting.
+
+3. custom-vpc.tf:
+```
+//Create my VPC
+resource "aws_vpc" "tf_vpc" {
+  cidr_block = "192.168.0.0/28"
+}
+//Create a Subnet
+resource "aws_subnet" "tf_sub" {
+  vpc_id     = aws_vpc.tf_vpc.id
+  cidr_block = "192.168.0.0/28"
+}
+```
+
+
+5. Run the Terraform Commands:
    - Select "New Terminal" in VsCode and choose Bash.
    - Run the following Terraform commands in the terminal:
       - terraform init (Initialize Terraform configuration.)
