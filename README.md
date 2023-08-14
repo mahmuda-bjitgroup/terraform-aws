@@ -1,5 +1,11 @@
 # AWS EC2 Creation using Terraform
 
+## Topics
+1. Provider
+2. VPC
+3. Subnet
+4. EC2
+
 ## Prerequisites
 
 1. Install Terraform (AMD64, Version: 1.5.5).
@@ -13,24 +19,17 @@
 
 ## Project Setup
 
-1. Create a new folder for your project.
+1. Clone this repository to your local machine:
+git clone https://github.com/mahmuda-bjitgroup/terraform-aws.git
 
 2. Open Visual Studio Code (VSCode):
-   - Open the project folder in VSCode.
+   - Open the terraform-aws folder in VSCode or any preferred IDE.
 
-3. Create a `provider.tf` file:
-   - Add the following code to configure the AWS provider in Terraform.
-   
-   ```hcl
-   provider "aws" {
-     region = "us-east-1"
-   }
-Terraform Commands
-Open a terminal in VSCode:
+3. Run the Terraform Commands:
+   - Open a terminal in VSCode:
 
-Select "New Terminal" and choose Bash.
-Run the following Terraform commands in the terminal:
-
-terraform init (Initialize Terraform configuration.)
-terraform plan (Preview changes to be applied.)
-terraform apply (Apply changes to create EC2 instance.)
+   - Select "New Terminal" and choose Bash.
+   - Run the following Terraform commands in the terminal:
+      - terraform init (Initialize Terraform configuration.)
+      - terraform plan (Preview changes to be applied.)
+      - terraform apply (Apply changes to create EC2 instance.)
