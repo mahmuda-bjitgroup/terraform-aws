@@ -82,10 +82,10 @@ This block of code creates a VPC resource using the aws_vpc resource type. The r
 //Create a Subnet
 resource "aws_subnet" "tf_sub" {
   vpc_id     = aws_vpc.tf_vpc.id
-  cidr_block = "192.168.0.0/28"
+  cidr_block = "192.168.0.0/29"
 }
 ```
-This block of code creates a subnet resource using the aws_subnet resource type. The resource is given the name tf_sub as an identifier. The vpc_id parameter specifies the ID of the VPC that the subnet will be associated with. In this case, it references the id attribute of the previously created VPC resource (aws_vpc.tf_vpc.id). The cidr_block parameter specifies the IP address range for the subnet, which is the same as the VPC's CIDR block.
+This block of code creates a subnet resource using the aws_subnet resource type. The resource is given the name tf_sub as an identifier. The vpc_id parameter specifies the ID of the VPC that the subnet will be associated with. In this case, it references the id attribute of the previously created VPC resource (aws_vpc.tf_vpc.id). The cidr_block parameter specifies the IP address range for the subnet, which is IP addresses from "192.168.0.0" to "192.168.0.7.
 
 5. Run the Terraform Commands:
    - Select "New Terminal" in VsCode and choose Bash.
@@ -93,3 +93,4 @@ This block of code creates a subnet resource using the aws_subnet resource type.
       - terraform init (Initialize Terraform configuration.)
       - terraform plan (Preview changes to be applied.)
       - terraform apply (Apply changes to create EC2 instance.)
+      - Type yes if you are sure about your changes. This will confirm the action and proceed with the execution of the Terraform command.
