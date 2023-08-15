@@ -53,11 +53,9 @@ git clone https://github.com/mahmuda-bjitgroup/terraform-aws.git
 1. provider.tf:
    ```
    provider "aws" {
-   region = "us-east-1"
    }
    ```
-In terraform, we need provider block to insert the provider information. And in the provider block we need the region where the instance will be mentioned. 
-The region attribute in the provider block in AWS is important because it specifies the AWS region where the resources created by Terraform will be deployed.
+In terraform, we need provider block to insert the provider information. As we are configuring with aws configure, the default provider configuration will work here.
 
 2.custom-vpc.tf:
 ```
@@ -78,13 +76,16 @@ resource "aws_instance" "web" {
 resource "aws_vpc" "tf_vpc" {
   cidr_block = "192.168.0.0/28"
 }
+```
+This block of code creates a VPC resource using the aws_vpc resource type. The resource is given the name tf_vpc as an identifier. The cidr_block parameter specifies the IP address range for the VPC, which in this case is "192.168.0.0/28". This means that the VPC will have a range of IP addresses from 192.168.0.0 to 192.168.0.15.
+```
 //Create a Subnet
 resource "aws_subnet" "tf_sub" {
   vpc_id     = aws_vpc.tf_vpc.id
   cidr_block = "192.168.0.0/28"
 }
 ```
-
+This block of code creates a subnet resource using the aws_subnet resource type. The resource is given the name tf_sub as an identifier. The vpc_id parameter specifies the ID of the VPC that the subnet will be associated with. In this case, it references the id attribute of the previously created VPC resource (aws_vpc.tf_vpc.id). The cidr_block parameter specifies the IP address range for the subnet, which is the same as the VPC's CIDR block.
 
 5. Run the Terraform Commands:
    - Select "New Terminal" in VsCode and choose Bash.
